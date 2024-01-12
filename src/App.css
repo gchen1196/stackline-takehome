@@ -1,42 +1,50 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #eee;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.top-nav {
+  background-color: #16348c;
+  color: white;
+  padding: 1rem;
+  border: solid thin red;
+  margin-bottom: 80px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-container {
+  display: flex;
+  flex: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.product-container {
+  flex: 1;
+  background-color: #fff;
+  margin-left: 20px;
+
+  border: solid thin purple;
 }
 
-.card {
-  padding: 2em;
+.visualizer-container {
+  flex: 4;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #eee;
 }
 
-.read-the-docs {
-  color: #888;
+.graph {
+  width: 100%;
+  height: 700px;
+  background-color: #fff;
+  margin-bottom: 80px;
+  border: solid thin red;
+}
+
+.table {
+  width: 100%;
+  height: 800px;
+  background-color: #fff;
+
+  border: solid thin red;
 }
