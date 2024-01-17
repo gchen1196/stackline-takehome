@@ -134,7 +134,7 @@ const ProductTable = () => {
     : [];
 
   return (
-    <DataGrid items={items} columns={columns} sortable focusMode="composite">
+    <DataGrid items={items} columns={columns} sortable>
       <DataGridHeader className={styles.header}>
         <DataGridRow>
           {({ renderHeaderCell }) => (
