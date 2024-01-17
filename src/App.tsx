@@ -7,6 +7,7 @@ import { fetchProducts } from "./features/product/productSlice";
 import ProductTable from "./components/ProductTable";
 import { useEffect } from "react";
 import { RootState } from "./app/store";
+import ProductOverview from "./components/ProductOverview";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -28,7 +29,9 @@ function App() {
       </header>
 
       <div className="main-container">
-        <aside className="product-container">Product description here</aside>
+        <aside className="product-container">
+          <ProductOverview />
+        </aside>
 
         <main className="visualizer-container">
           <div className="graph">Graph</div>

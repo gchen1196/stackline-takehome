@@ -7,6 +7,8 @@ import {
   DataGridRow,
   TableColumnDefinition,
   createTableColumn,
+  shorthands,
+  makeStyles,
 } from "@fluentui/react-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
@@ -28,6 +30,17 @@ type Item = {
   unitsSold: SalesCell;
   retailerMargin: SalesCell;
 };
+
+const useStyles = makeStyles({
+  header: {
+    textTransform: "uppercase",
+    letterSpacing: "-0.02em",
+  },
+  row: {
+    color: "#b7b9bd",
+    ...shorthands.margin("5px", "5px"),
+  },
+});
 
 const columns: TableColumnDefinition<Item>[] = [
   createTableColumn<Item>({
@@ -93,6 +106,7 @@ const columns: TableColumnDefinition<Item>[] = [
 ];
 
 const ProductTable = () => {
+  const styles = useStyles();
   const product = useSelector((state: RootState) => state.product.productData);
   const items: Item[] = product.length
     ? product[0].sales.map(sale => ({
@@ -121,14 +135,18 @@ const ProductTable = () => {
 
   return (
     <DataGrid items={items} columns={columns} sortable focusMode="composite">
-      <DataGridHeader>
+      <DataGridHeader className={styles.header}>
         <DataGridRow>
-          {({ renderHeaderCell }) => <DataGridHeaderCell>{renderHeaderCell()}</DataGridHeaderCell>}
+          {({ renderHeaderCell }) => (
+            <DataGridHeaderCell style={{ paddingTop: 15, paddingBottom: 15, paddingLeft: 10 }}>
+              {renderHeaderCell()}
+            </DataGridHeaderCell>
+          )}
         </DataGridRow>
       </DataGridHeader>
       <DataGridBody>
         {({ item, rowId }) => (
-          <DataGridRow key={rowId}>
+          <DataGridRow className={styles.row} key={rowId}>
             {({ renderCell }) => <DataGridCell>{renderCell(item)}</DataGridCell>}
           </DataGridRow>
         )}
