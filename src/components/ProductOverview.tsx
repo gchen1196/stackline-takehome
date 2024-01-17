@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
+
 import styles from "./ProductOverview.module.css";
 
 const ProductOverview = () => {
@@ -13,10 +14,9 @@ const ProductOverview = () => {
       <div className={styles.title}>{productInfo.title}</div>
       <div className={styles.description}>{productInfo.subtitle}</div>
       <div className={styles.tags}>
-        <span className={styles.tag}>Pantry</span>
-        <span className={styles.tag}>Obsolete</span>
-        <span className={styles.tag}>Blender</span>
-        <span className={styles.tag}>Lightning Deal</span>
+        {productInfo.tags.map(val => (
+          <span className={styles.tag}>{val}</span>
+        ))}
       </div>
     </div>
   );
